@@ -16,20 +16,6 @@
     </requiredProperties>
 
     <fileSets>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory/>
-            <includes>
-                <include>README.md</include>
-            </includes>
-        </fileSet>
-        <fileSet encoding="UTF-8">
-            <directory/>
-            <includes>
-                <include>.gitignore</include>
-                <include>Changelog.md</include>
-                <include>TODO.md</include>
-            </includes>
-        </fileSet>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/main/java</directory>
         </fileSet>

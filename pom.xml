@@ -2,7 +2,6 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.github.drtrang</groupId>
         <artifactId>parent</artifactId>
@@ -10,33 +9,19 @@
     </parent>
 
     <artifactId>maven-archetype-springboot</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
     <packaging>maven-archetype</packaging>
 
     <name>maven-archetype-springboot</name>
-    <description>基于 Spring Boot 的 Maven 原型</description>
-    <url>https://github.com/drtrang/maven-archetype-springboot</url>
+    <description>基于Spring Boot的Maven原型</description>
 
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>https://github.com/drtrang/maven-archetype-springboot/blob/master/LICENSE</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>trang</name>
-            <email>donghao.l@hotmail.com</email>
-        </developer>
-    </developers>
-
-    <scm>
-        <url>https://github.com/drtrang/maven-archetype-springboot.git</url>
-        <connection>scm:git:https://github.com/drtrang/maven-archetype-springboot.git</connection>
-        <developerConnection>scm:git:https://github.com/drtrang</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>nexus-releases</name>
+            <url>http://192.168.0.150:8081/nexus/content/groups/public</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <extensions>
@@ -70,5 +55,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

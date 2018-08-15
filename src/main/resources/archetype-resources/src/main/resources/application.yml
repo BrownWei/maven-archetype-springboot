@@ -35,14 +35,12 @@ mybatis:
     lazy-loading-enabled: false
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 
-#https://github.com/abel533/Mapper/tree/master/wiki/mapper3
 mapper:
   mappers:
     - ${package}.util.BaseMapper
   not-empty: true
   identity: MYSQL
 
-#https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md
 pagehelper:
   helper-dialect: mysql
   offset-as-page-num: true

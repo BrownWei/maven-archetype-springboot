@@ -18,10 +18,9 @@ spring:
       includes:
         - ${package}.config.Swagger2Config
   datasource:
-    url: jdbc:h2:file:./samples
+    url: jdbc:mysql://192.168.100.69:3306/iot-test
     username: root
-    password: 123456
-    schema: classpath:import.sql
+    password: qwe123456
     druid:
       initial-size: 1
       min-idle: 1
@@ -55,7 +54,15 @@ spring:
         throw-exception: false
   cache:
     type: none
-#  redisson:
-#    type: single
-#    single:
-#      address: redis://127.0.0.1:6379
+
+redis:
+  database: 0
+  host: localhost
+  port: 6379
+  password:
+  timeout: 0
+  pool:
+    max-active: 8
+    max-idle: 8
+    min-idle: 0
+    max-wait: -1
