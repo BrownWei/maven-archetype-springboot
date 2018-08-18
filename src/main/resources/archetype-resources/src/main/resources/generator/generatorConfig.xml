@@ -36,12 +36,12 @@
       targetRuntime:
           1，MyBatis3：默认的值，生成基于MyBatis3.x以上版本的内容，包括XXXBySample；
           2，MyBatis3Simple：类似MyBatis3，只是不生成XXXBySample；
-      introspectedColumnImpl：指定扩展org.mybatis.generator.api.IntrospectedColumn该类的实现类
+      introspectedColumnImpl：指定扩展org.mybatis.generator.api.IntrospectedColumn该类的实现类-->
 
     <context id="DB2Tables" defaultModelType="flat"
-             targetRuntime="MyBatis3">-->
-    <context id="demo" defaultModelType="flat"
-             targetRuntime="tk.mybatis.mapper.generator.TkMyBatis3SimpleImpl">
+             targetRuntime="MyBatis3">
+     <!--<context id="demo" defaultModelType="flat"
+             targetRuntime="tk.mybatis.mapper.generator.TkMyBatis3SimpleImpl">-->
     <!--
             自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
             一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖
