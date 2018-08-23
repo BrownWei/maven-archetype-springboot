@@ -16,7 +16,7 @@ spring:
   profiles:
     configure:
       includes:
-      - com.lumi.aiot.cloud.config.Swagger2Config
+      - ${package}.config.Swagger2Config
   datasource:
     url: jdbc:mysql://192.168.100.69:3306/iot-test
     username: root
