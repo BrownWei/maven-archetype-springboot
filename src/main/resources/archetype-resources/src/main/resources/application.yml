@@ -4,6 +4,10 @@ logging:
   level:
     root: info
 
+management:
+  security:
+    enabled: false #关闭认证
+
 spring:
   application:
     name: ${artifactId}

@@ -42,9 +42,9 @@
         <pagehelper-spring-boot-starter.version>1.2.3</pagehelper-spring-boot-starter.version>
         <spring-boot-autoconfigure.version>1.0.0</spring-boot-autoconfigure.version>
         <swagger2.version>2.9.2</swagger2.version>
-        <swagger2-ui-lay.version>0.0.6</swagger2-ui-lay.version>
         <typehandlers-encrypt.version>1.1.1</typehandlers-encrypt.version>
         <univocity.parsers.version>2.5.9</univocity.parsers.version>
+        <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
         <!-- Maven 插件 -->
         <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
@@ -102,10 +102,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
@@ -149,6 +145,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!--starter begin-->
 
         <!--common dependency begin-->
@@ -172,9 +169,9 @@
             <version>${swagger2.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.github.caspar-chen</groupId>
-            <artifactId>swagger-ui-layer</artifactId>
-            <version>${swagger2-ui-lay.version}</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.drtrang</groupId>
@@ -257,6 +254,11 @@
             <groupId>com.univocity</groupId>
             <artifactId>univocity-parsers</artifactId>
             <version>${univocity.parsers.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
         </dependency>
     </dependencies>
 
