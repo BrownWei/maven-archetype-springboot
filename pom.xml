@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lumi.aiot.cloud</groupId>
     <artifactId>maven-archetype-springboot</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>maven-archetype</packaging>
 
     <name>maven-archetype-springboot</name>

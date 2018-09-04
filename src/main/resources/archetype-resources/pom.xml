@@ -45,6 +45,7 @@
         <typehandlers-encrypt.version>1.1.1</typehandlers-encrypt.version>
         <univocity.parsers.version>2.5.9</univocity.parsers.version>
         <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
+        <rocketmq-starter.version>0.1.0</rocketmq-starter.version>
         <!-- Maven 插件 -->
         <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
@@ -145,8 +146,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!--starter begin-->
+        <dependency>
+            <groupId>com.maihaoche</groupId>
+            <artifactId>spring-boot-starter-rocketmq</artifactId>
+            <version>${rocketmq-starter.version}</version>
+        </dependency>
+        <!--starter end-->
 
         <!--common dependency begin-->
         <dependency>

@@ -66,3 +66,13 @@ spring:
       max-idle: 8
       min-idle: 0
       max-wait: -1
+  rocketmq:
+    name-server-address: 192.168.100.71:9876
+    # 同一个应用使用同一个pruducerGroup
+    producer-group: ${artifactId}_producer_group
+    # 发送超时配置毫秒数, 可选, 默认3000` o976
+    send-msg-timeout: 5000
+    # 追溯消息具体消费情况的开关，默认打开
+    #trace-enabled: false
+    # 是否启用VIP通道，默认打开
+    #vip-channel-enabled: false
