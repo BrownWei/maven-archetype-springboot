@@ -270,12 +270,17 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <properties>
-                <mvn.profile.active>dev</mvn.profile.active>
-            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <env.devMode>dev</env.devMode>
+                <mvn.profile.active>dev</mvn.profile.active>
+                <skipAssemblyDEV>false</skipAssemblyDEV>
+                <skipAssemblyTEST>true</skipAssemblyTEST>
+                <skipAssemblyPRD>true</skipAssemblyPRD>
+                <skipAssemblyPRE>true</skipAssemblyPRE>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -309,6 +314,48 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>test</env.devMode>
+                <mvn.profile.active>test</mvn.profile.active>
+                <skipAssemblyDEV>true</skipAssemblyDEV>
+                <skipAssemblyTEST>false</skipAssemblyTEST>
+                <skipAssemblyPRD>true</skipAssemblyPRD>
+                <skipAssemblyPRE>true</skipAssemblyPRE>
+            </properties>
+        </profile>
+        <profile>
+            <id>pre</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>pre</env.devMode>
+                <mvn.profile.active>pre</mvn.profile.active>
+                <skipAssemblyDEV>true</skipAssemblyDEV>
+                <skipAssemblyTEST>true</skipAssemblyTEST>
+                <skipAssemblyPRD>false</skipAssemblyPRD>
+                <skipAssemblyPRE>true</skipAssemblyPRE>
+            </properties>
+        </profile>
+        <profile>
+            <id>prd</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>prd</env.devMode>
+                <mvn.profile.active>prd</mvn.profile.active>
+                <skipAssemblyDEV>true</skipAssemblyDEV>
+                <skipAssemblyTEST>true</skipAssemblyTEST>
+                <skipAssemblyPRD>true</skipAssemblyPRD>
+                <skipAssemblyPRE>false</skipAssemblyPRE>
+            </properties>
         </profile>
         <profile>
             <id>coveralls</id>
@@ -454,6 +501,69 @@
             <plugin>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>${maven-install-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <!--<configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>-->
+                <executions>
+                    <execution>
+                        <id>make-assembly-dev</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skipAssemblyDEV}</skipAssembly><!--profile声明参数调用-->
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly-dev.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>make-assembly-test</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skipAssemblyTEST}</skipAssembly><!--profile声明参数调用-->
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly-test.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>make-assembly-pre</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skipAssemblyPRE}</skipAssembly><!--profile声明参数调用-->
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly-pre.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>make-assembly-prd</id>
+                        <phase>package</phase><!--绑定到package-->
+                        <goals>
+                            <goal>single</goal><!--只运行一次-->
+                        </goals>
+                        <configuration>
+                            <skipAssembly>${skipAssemblyPRD}</skipAssembly><!--profile声明参数调用-->
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly-prd.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
