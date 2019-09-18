@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <groupId>com.lumi.aiot.cloud</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.2-SNAPSHOT</version>
     </parent>
 
     <groupId>${groupId}</groupId>
@@ -17,416 +17,51 @@
     <name>${artifactId}</name>
     <description>${artifactId}</description>
 
-    <properties>
-        <!-- 工程参数 -->
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- 基础依赖 -->
-        <cglib.version>3.2.5</cglib.version>
-        <commons-collections4>4.1</commons-collections4>
-        <commons-fileupload.version>1.3.3</commons-fileupload.version>
-        <commons-io.version>2.6</commons-io.version>
-        <commons-lang3>3.7</commons-lang3>
-        <commons-logging.version>99.0-does-not-exist</commons-logging.version>
-        <copiers.version>1.1.1</copiers.version>
-        <druid-spring-boot-starter.version>1.1.3</druid-spring-boot-starter.version>
-        <fastjson.version>1.2.41</fastjson.version>
-        <fst.version>2.56</fst.version>
-        <guava.version>23.0</guava.version>
-        <mapper-spring-boot-starter.version>1.1.5</mapper-spring-boot-starter.version>
-        <mapper.version>3.4.4</mapper.version>
-        <mybatis-generator-extension.version>0.0.3</mybatis-generator-extension.version>
-        <mybatis-generator.version>1.3.5</mybatis-generator.version>
-        <mybatis-spring-boot-starter.version>1.3.1</mybatis-spring-boot-starter.version>
-        <pagehelper-spring-boot-starter.version>1.2.3</pagehelper-spring-boot-starter.version>
-        <spring-boot-autoconfigure.version>1.0.0</spring-boot-autoconfigure.version>
-        <swagger2.version>2.9.2</swagger2.version>
-        <typehandlers-encrypt.version>1.1.1</typehandlers-encrypt.version>
-        <univocity.parsers.version>2.5.9</univocity.parsers.version>
-        <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
-        <rocketmq-starter.version>0.1.0</rocketmq-starter.version>
-        <!-- Maven 插件 -->
-        <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
-        <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
-        <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
-        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-        <maven-enforcer-plugin.version>3.0.0-M1</maven-enforcer-plugin.version>
-        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.0.0-M1</maven-javadoc-plugin.version>
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
-        <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
-        <maven-site-plugin.version>3.6</maven-site-plugin.version>
-        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
-    </properties>
-
     <dependencies>
-        <!--starter begin-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.lumi.aiot.cloud</groupId>
+            <artifactId>spring-boot-starter-data-mysql-lumi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.lumi.aiot.cloud</groupId>
+            <artifactId>spring-boot-starter-rocketmq-lumi</artifactId>
+            <version>2.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.lumi.aiot.cloud</groupId>
+            <artifactId>spring-cloud-starter-lumi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
             <exclusions>
                 <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <artifactId>jsr305</artifactId>
+                    <groupId>com.google.code.findbugs</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.eclipse.jetty.websocket</groupId>
-                    <artifactId>javax-websocket-server-impl</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.eclipse.jetty.websocket</groupId>
-                    <artifactId>websocket-server</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>com.lumi.aiot.cloud</groupId>
+            <artifactId>spring-boot-starter-config-apollo-lumi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>com.lumi.aiot.cloud</groupId>
+            <artifactId>spring-boot-starter-metrics-lumi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis-spring-boot-starter.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.tomcat</groupId>
-                    <artifactId>tomcat-jdbc</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>${mapper-spring-boot-starter.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.tomcat</groupId>
-                    <artifactId>tomcat-jdbc</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>${pagehelper-spring-boot-starter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drtrang</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid-spring-boot-starter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.maihaoche</groupId>
-            <artifactId>spring-boot-starter-rocketmq</artifactId>
-            <version>${rocketmq-starter.version}</version>
-        </dependency>
-        <!--starter end-->
-
-        <!--common dependency begin-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drtrang</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>${spring-boot-autoconfigure.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drtrang</groupId>
-            <artifactId>mybatis-generator-extension</artifactId>
-            <version>${mybatis-generator-extension.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drtrang</groupId>
-            <artifactId>typehandlers-encrypt</artifactId>
-            <version>${typehandlers-encrypt.version}</version>
-        </dependency>
-        <dependency>
-            <artifactId>mysql-connector-java</artifactId>
-            <groupId>mysql</groupId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>${cglib.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.ruedigermoeller</groupId>
-            <artifactId>fst</artifactId>
-            <version>${fst.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>j2objc-annotations</artifactId>
-                    <groupId>com.google.j2objc</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>${commons-logging.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>${commons-collections4}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>${commons-fileupload.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.drtrang</groupId>
-            <artifactId>copiers</artifactId>
-            <version>${copiers.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.univocity</groupId>
-            <artifactId>univocity-parsers</artifactId>
-            <version>${univocity.parsers.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate.validator.version}</version>
+            <groupId>com.lumi.aiot.cloud</groupId>
+            <artifactId>spring-boot-starter-swagger-lumi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <env.devMode>dev</env.devMode>
-                <mvn.profile.active>dev</mvn.profile.active>
-                <skipAssemblyDEV>false</skipAssemblyDEV>
-                <skipAssemblyTEST>true</skipAssemblyTEST>
-                <skipAssemblyPRD>true</skipAssemblyPRD>
-                <skipAssemblyPRE>true</skipAssemblyPRE>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.mybatis.generator</groupId>
-                        <artifactId>mybatis-generator-maven-plugin</artifactId>
-                        <version>${mybatis-generator.version}</version>
-                        <configuration>
-                            <configurationFile>
-                                ${basedir}/src/main/resources/generator/generatorConfig.xml
-                            </configurationFile>
-                            <overwrite>true</overwrite>
-                            <verbose>true</verbose>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>mysql</groupId>
-                                <artifactId>mysql-connector-java</artifactId>
-                                <version>${mysql.version}</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>tk.mybatis</groupId>
-                                <artifactId>mapper</artifactId>
-                                <version>${mapper.version}</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>com.github.drtrang</groupId>
-                                <artifactId>mybatis-generator-extension</artifactId>
-                                <version>${mybatis-generator-extension.version}</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>test</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <env.devMode>test</env.devMode>
-                <mvn.profile.active>test</mvn.profile.active>
-                <skipAssemblyDEV>true</skipAssemblyDEV>
-                <skipAssemblyTEST>false</skipAssemblyTEST>
-                <skipAssemblyPRD>true</skipAssemblyPRD>
-                <skipAssemblyPRE>true</skipAssemblyPRE>
-            </properties>
-        </profile>
-        <profile>
-            <id>pre</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <env.devMode>pre</env.devMode>
-                <mvn.profile.active>pre</mvn.profile.active>
-                <skipAssemblyDEV>true</skipAssemblyDEV>
-                <skipAssemblyTEST>true</skipAssemblyTEST>
-                <skipAssemblyPRD>false</skipAssemblyPRD>
-                <skipAssemblyPRE>true</skipAssemblyPRE>
-            </properties>
-        </profile>
-        <profile>
-            <id>prd</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <env.devMode>prd</env.devMode>
-                <mvn.profile.active>prd</mvn.profile.active>
-                <skipAssemblyDEV>true</skipAssemblyDEV>
-                <skipAssemblyTEST>true</skipAssemblyTEST>
-                <skipAssemblyPRD>true</skipAssemblyPRD>
-                <skipAssemblyPRE>false</skipAssemblyPRE>
-            </properties>
-        </profile>
-        <profile>
-            <id>coveralls</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven-surefire-plugin.version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.eluder.coveralls</groupId>
-                        <artifactId>coveralls-maven-plugin</artifactId>
-                        <version>${coveralls-maven-plugin.version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>cobertura-maven-plugin</artifactId>
-                        <version>${cobertura-maven-plugin.version}</version>
-                        <configuration>
-                            <format>xml</format>
-                            <maxmem>512m</maxmem>
-                            <aggregate>true</aggregate>
-                            <check>
-                                <haltOnFailure>true</haltOnFailure>
-                            </check>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven-javadoc-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>${maven-deploy-plugin.version}</version>
-                        <configuration>
-                            <updateReleaseInfo>true</updateReleaseInfo>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>${maven-release-plugin.version}</version>
-                        <configuration>
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                            <useReleaseProfile>true</useReleaseProfile>
-                            <releaseProfiles>release</releaseProfiles>
-                            <goals>deploy</goals>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -436,21 +71,86 @@
                 <directory>src/main/resources</directory>
             </resource>
             <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>application.yml</include>
+                    <include>**/*.properties</include>
                 </includes>
             </resource>
         </resources>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>${package}.Application</mainClass>
+                            <useUniqueVersions>false</useUniqueVersions>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
             <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis-generator.version}</version>
+                <configuration>
+                    <configurationFile>
+                        ${basedir}/src/main/resources/generator/generatorConfig.xml
+                    </configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>tk.mybatis</groupId>
+                        <artifactId>mapper</artifactId>
+                        <version>${mapper.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.github.drtrang</groupId>
+                        <artifactId>mybatis-generator-extension</artifactId>
+                        <version>${mybatis-generator-extension.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!-- third-party jar into lib directory -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>${maven-dependency-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <includeScope>runtime</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -483,10 +183,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven-jar-plugin.version}</version>
-            </plugin>
-            <plugin>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>${maven-source-plugin.version}</version>
                 <executions>
@@ -505,61 +201,19 @@
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.1.0</version>
-                <!--<configuration>
-                    <descriptors>
-                        <descriptor>src/main/assembly/assembly.xml</descriptor>
-                    </descriptors>
-                </configuration>-->
+                <configuration>
+                    <outputDirectory>${out_path_dir}</outputDirectory>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>make-assembly-dev</id>
+                        <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <skipAssembly>${skipAssemblyDEV}</skipAssembly><!--profile声明参数调用-->
                             <descriptors>
-                                <descriptor>src/main/assembly/assembly-dev.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>make-assembly-test</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <skipAssembly>${skipAssemblyTEST}</skipAssembly><!--profile声明参数调用-->
-                            <descriptors>
-                                <descriptor>src/main/assembly/assembly-test.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>make-assembly-pre</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <skipAssembly>${skipAssemblyPRE}</skipAssembly><!--profile声明参数调用-->
-                            <descriptors>
-                                <descriptor>src/main/assembly/assembly-pre.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>make-assembly-prd</id>
-                        <phase>package</phase><!--绑定到package-->
-                        <goals>
-                            <goal>single</goal><!--只运行一次-->
-                        </goals>
-                        <configuration>
-                            <skipAssembly>${skipAssemblyPRD}</skipAssembly><!--profile声明参数调用-->
-                            <descriptors>
-                                <descriptor>src/main/assembly/assembly-prd.xml</descriptor>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lumi.aiot.cloud</groupId>
     <artifactId>maven-archetype-springboot</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.1</version>
     <packaging>maven-archetype</packaging>
 
     <name>maven-archetype-springboot</name>
@@ -15,17 +15,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- 配置远程发布到私服，mvn deploy -->
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
             <name>Nexus Release Repository</name>
-            <url>http://192.168.0.150:8081/nexus/content/repositories/releases/</url>
+            <url>http://192.168.100.86:8081/repository/releases/</url>
         </repository>
+
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>Nexus Snapshot Repository</name>
-            <url>http://192.168.0.150:8081/nexus/content/repositories/snapshots/</url>
+            <url>http://192.168.100.86:8081/repository/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
